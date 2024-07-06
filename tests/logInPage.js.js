@@ -41,26 +41,26 @@ async function homePageTest() {
                 console.log('Apps dropdown clicked successfully!');
 
 
-            //Legend page    
-            // let legendPage = await driver.wait(until.elementLocated(By.xpath("//a[text()='Legend']")), 5000);
-            //     legendPage.click();
-                //await driver.sleep(5000);
+           
 
 
          // Wait for the dropdown to be visible
-        //  let dropdown = await driver.wait(until.elementLocated(By.css('#navbarDropdown')), 5000);
+         let dropdown = await driver.wait(until.elementLocated(By.css('#navbarDropdown')), 5000);
         //  // Click the dropdown to display the options
-        //  await dropdown.click();
+         await dropdown.click();
  
         //  // Wait for the option to be clickable and then click it
-        //  let option = await driver.wait(until.elementLocated(By.css('#navbarNav > ul > li.nav-item.dropdown > div > a:nth-child(1)"]')), 5000);
-        //  await option.click();
+         //let option = await driver.wait(until.elementLocated(By.css('#navbarNav > ul > li.nav-item.dropdown > div > a:nth-child(1)"]')), 5000);
+         const element = await driver.findElement(By.xpath("//*[text()='Email Marketing']"));
+         await element.click();
+         await driver.sleep(5000);
  
          console.log('Dropdown option selected successfully!');
-        //let appEmailMarket = await driver.findElement(By.css(" #navbarNav > ul > li.nav-item.dropdown > div > a:nth-child(1)"));
-        //await driver.wait(until.elementLocated(By.css('.navbar-toggler-icon')), 5000);
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
+       
+        //Legend page    
+                let legendPage = await driver.wait(until.elementLocated(By.xpath("//a[text()='Legend']")), 5000);
+                    legendPage.click();
+                    await driver.sleep(5000);
     } catch (error) {
         console.error(`Error occurred: ${error}`);
     } finally {
