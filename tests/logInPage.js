@@ -22,28 +22,27 @@ await usernameElem.sendKeys("demo");
 let passwordField = await driver.findElement(By.css("input.password"));
 await passwordField.sendKeys('siriusmindshare');
 
-//let loginButton = await driver.findElement(By.css("button.login-button"));
+//Login btn
 let loginButton = await driver.findElement(By.css("button.login-button"));
 await loginButton.click();
 
-// Navigate to the app dropdown
+//Navigate to the app dropdown icon
 let appsDropDownBtn = await driver.wait(until.elementLocated(By.css('#navbarDropdown')), 5000);
 await appsDropDownBtn.click();
 await driver.sleep(5000);
 
-//emailMarketing app
-let emailMarketing = await driver.wait(until.elementLocated(By.css("#navbarNav > ul > li.nav-item.dropdown > div > a:nth-child(1)")), 10000);
-await emailMarketing.click();
-
-// Wait for the dropdown to be visible and click on it
 let dropdown = await driver.wait(until.elementLocated(By.css('#navbarDropdown')), 5000);
 await dropdown.click();
+await driver.sleep(5000);
+
+// //emailMarketing app
+let emailMarketing = await driver.wait(until.elementLocated(By.css("#navbarNav > ul > li.nav-item.dropdown > div > a:nth-child(1)")), 10000);
+await emailMarketing.click();
 
 //  find and click on Email Marketing
 const element = await driver.findElement(By.xpath("//*[text()='Email Marketing']"));
 await element.click();
 await driver.sleep(5000);
-console.log('Dropdown option selected successfully!');
 
 //click on Submit
 let submitBtn = await driver.findElement(By.xpath("//*[text()='Start']"));
@@ -63,16 +62,20 @@ await emailSubject.sendKeys("John");
 let inputMean = await driver.findElement(By.xpath("//input[@placeholder='Enter The Mean Openrate']"));
 await inputMean.sendKeys(637);
 
+await driver.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+console.log("Scrolled down successfully");
+await driver.sleep(5000);
 
-let standDeviation= await driver.findElement(By.xpath("//input[@placeholder='Enter The Standard Deviation']"));
+let standDeviation = await driver.findElement(By.xpath("//input[@placeholder='Enter The Standard Deviation']"));
 await standDeviation.sendKeys(0.5);
 await driver.sleep(5000);
 
 let runOpenRate = await driver.findElement(By.xpath("//*[text()='Run Open Rate']"));
 await runOpenRate.click();
-await driver.sleep(10000);
+await driver.sleep(5000);
 
-
+await driver.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+await driver.sleep(5000);
 
 
 
